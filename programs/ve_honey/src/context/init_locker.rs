@@ -16,7 +16,8 @@ pub struct InitLocker<'info> {
         init,
         seeds = [LOCKER_SEED.as_bytes(), base.key().as_ref()],
         bump,
-        payer = payer
+        payer = payer,
+        space = std::mem::size_of::<Locker>() + 8
     )]
     pub locker: Box<Account<'info, Locker>>,
     /// Mint of the token that can be used to join the [Locker].

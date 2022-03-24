@@ -26,7 +26,8 @@ pub struct ApproveProgramLockPrivilege<'info> {
             whitelisted_owner.key().as_ref()
         ],
         bump,
-        payer = payer
+        payer = payer,
+        space = std::mem::size_of::<WhitelistEntry>() + 8
     )]
     pub whitelist_entry: Box<Account<'info, WhitelistEntry>>,
 

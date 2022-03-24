@@ -20,7 +20,8 @@ pub struct InitEscrow<'info> {
             escrow_owner.key().as_ref(),
         ],
         bump,
-        payer = payer
+        payer = payer,
+        space = std::mem::size_of::<Escrow>() + 8
     )]
     pub escrow: Box<Account<'info, Escrow>>,
     /// CHECK: Authority of the [Escrow] to be created.
