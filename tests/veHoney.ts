@@ -12,7 +12,7 @@ const idl = JSON.parse(fs.readFileSync("./target/idl/ve_honey.json", "utf8"));
 const programId = new anchor.web3.PublicKey(
   "6P22FaYnxcxmEaJusq795fyg8w6fG94wdQd18SfQWi7V"
 );
-const clusterUrl = "https://api.devnet.solana.com";
+const clusterUrl = "https://api.devnet.solana.com/";
 // const clusterUrl = "http://127.0.0.1:8899";
 
 describe("veHoney Test", () => {

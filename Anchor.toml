@@ -1,7 +1,9 @@
 [features]
 seeds = false
 [programs.devnet]
-ve_honey = "6P22FaYnxcxmEaJusq795fyg8w6fG94wdQd18SfQWi7V"
+ve_honey = "CKQapf8pWoMddT15grV8UCPjiLCTHa12NRgkKV63Lc7q"
+stake = "4V68qajTiVHm3Pm9fQoV8D4tEYBmq3a34R9NV5TymLr7"
+
 [registry]
 url = "https://anchor.projectserum.com"
 
