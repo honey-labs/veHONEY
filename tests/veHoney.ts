@@ -8,12 +8,12 @@ import { VeHoney } from "../target/types/ve_honey";
 import { Stake } from "../target/types/stake";
 import * as constants from "./constants";
 
-// const idl = JSON.parse(fs.readFileSync("./target/idl/ve_honey.json", "utf8"));
-// const programId = new anchor.web3.PublicKey(
-//   "CKQapf8pWoMddT15grV8UCPjiLCTHa12NRgkKV63Lc7q"
-// );
-// const clusterUrl = "https://api.devnet.solana.com";
-const clusterUrl = "http://127.0.0.1:8899";
+const idl = JSON.parse(fs.readFileSync("./target/idl/ve_honey.json", "utf8"));
+const programId = new anchor.web3.PublicKey(
+  "6P22FaYnxcxmEaJusq795fyg8w6fG94wdQd18SfQWi7V"
+);
+const clusterUrl = "https://api.devnet.solana.com";
+// const clusterUrl = "http://127.0.0.1:8899";
 
 describe("veHoney Test", () => {
   const payer = anchor.web3.Keypair.generate();

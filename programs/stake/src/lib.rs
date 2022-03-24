@@ -2,7 +2,7 @@ use anchor_lang::prelude::*;
 use anchor_spl::token::{self, Mint, Token, TokenAccount};
 use spl_token::instruction::AuthorityType;
 
-declare_id!("4V68qajTiVHm3Pm9fQoV8D4tEYBmq3a34R9NV5TymLr7");
+declare_id!("48jQYQcbzb6bsNE15YwnzmnYfpeBVhaqRWVSp6btEskZ");
 
 pub mod constants {
     pub const TOKEN_VAULT_SEED: &str = "TokenVault";
