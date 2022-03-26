@@ -1,6 +1,4 @@
-const fs = require("fs");
 const assert = require("assert");
-const { exit } = require("process");
 import * as anchor from "@project-serum/anchor";
 import { Program } from "@project-serum/anchor";
 import { ASSOCIATED_TOKEN_PROGRAM_ID, Token } from "@solana/spl-token";
@@ -8,11 +6,11 @@ import { VeHoney } from "../target/types/ve_honey";
 import { Stake } from "../target/types/stake";
 import * as constants from "./constants";
 
-const idl = JSON.parse(fs.readFileSync("./target/idl/ve_honey.json", "utf8"));
-const programId = new anchor.web3.PublicKey(
-  "6P22FaYnxcxmEaJusq795fyg8w6fG94wdQd18SfQWi7V"
-);
-const clusterUrl = "https://api.devnet.solana.com/";
+// const idl = JSON.parse(fs.readFileSync("./target/idl/ve_honey.json", "utf8"));
+// const programId = new anchor.web3.PublicKey(
+//   "CKQapf8pWoMddT15grV8UCPjiLCTHa12NRgkKV63Lc7q"
+// );
+const clusterUrl = "https://api.devnet.solana.com";
 // const clusterUrl = "http://127.0.0.1:8899";
 
 describe("veHoney Test", () => {
@@ -68,12 +66,14 @@ describe("veHoney Test", () => {
   it("Initialize testing ... ", async () => {
     console.log("Airdrop 1 SOL to payer ...");
     await publicConnection.confirmTransaction(
-      await publicConnection.requestAirdrop(payer.publicKey, LAMPORTS_PER_SOL)
+      await publicConnection.requestAirdrop(payer.publicKey, LAMPORTS_PER_SOL),
+      "finalized"
     );
 
     console.log("Airdrop 1 SOL to user ...");
     await publicConnection.confirmTransaction(
-      await publicConnection.requestAirdrop(user.publicKey, LAMPORTS_PER_SOL)
+      await publicConnection.requestAirdrop(user.publicKey, LAMPORTS_PER_SOL),
+      "finalized"
     );
 
     honeyMint = await Token.createMint(
@@ -384,7 +384,7 @@ describe("veHoney Test", () => {
     const lt = program.addEventListener("ExitEscrowEvent", (e, s) => {
       console.log("Exit Escrow in Slot: ", s);
       console.log("Locker: ", e.locker.toString());
-      console.log("Escorw Onwer: ", e.escrowOwner.toString());
+      console.log("Escrow Onwer: ", e.escrowOwner.toString());
       console.log("Locked Supply: ", e.lockedSupply.toString());
       console.log("Released Amount: ", e.releasedAmount.toString());
       console.log("Timestamp: ", e.timestamp.toString());
