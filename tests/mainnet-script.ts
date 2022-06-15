@@ -229,13 +229,17 @@ async function set_owner() {
 
 async function set_mint_authority() {
   // TODO: mintAuthorityKey should be replaced with the current mint authority.
-  const mintAuthorityKey = anchor.web3.Keypair.generate();
+  const mintAuthorityKey = anchor.web3.Keypair.fromSecretKey(
+    Uint8Array.from(
+      JSON.parse(fs.readFileSync("./tests/keys/owner.json", "utf8"))
+    )
+  );
 
   await stakeProgram.rpc.setMintAuthority({
     accounts: {
       owner: admin.publicKey,
       poolInfo: stakePool,
-      tokenMint: honeyMint,
+      tokenMint: honeyMint.publicKey,
       authority: authority,
       originAuthority: mintAuthorityKey.publicKey,
       tokenProgram: TOKEN_PROGRAM_ID,
