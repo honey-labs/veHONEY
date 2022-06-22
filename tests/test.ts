@@ -1,0 +1,1 @@
+console.log(process.env.ANCHOR_PROVIDER_URL)
