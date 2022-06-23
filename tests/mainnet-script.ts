@@ -91,7 +91,7 @@ async function getAddresses() {
   // TODO: admin key should replaced with the ledger keypair
   admin = anchor.web3.Keypair.fromSecretKey(
     Uint8Array.from(
-      JSON.parse(fs.readFileSync("/Users/fud/.config/solana/id.json", "utf8"))
+      JSON.parse(fs.readFileSync("~/.config/solana/id.json", "utf8"))
     )
   );
 
@@ -120,7 +120,7 @@ async function getAddresses() {
 
   lockerBase = anchor.web3.Keypair.fromSecretKey(
     Uint8Array.from(
-      JSON.parse(fs.readFileSync("./tests/keys/locker_base.json", "utf8"))
+      JSON.parse(fs.readFileSync("~/.config/solana/id.json", "utf8"))
     )
   );
 
@@ -231,7 +231,7 @@ async function set_mint_authority() {
   // TODO: mintAuthorityKey should be replaced with the current mint authority.
   const mintAuthorityKey = anchor.web3.Keypair.fromSecretKey(
     Uint8Array.from(
-      JSON.parse(fs.readFileSync("/Users/fud/.config/solana/id.json", "utf8"))
+      JSON.parse(fs.readFileSync("~/.config/solana/id.json", "utf8"))
     )
   );
 
